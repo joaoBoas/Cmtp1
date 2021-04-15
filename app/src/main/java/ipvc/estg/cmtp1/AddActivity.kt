@@ -11,12 +11,9 @@ class AddActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add)
-
         btnAdd.setOnClickListener {
-
             val  title = addTitle.text.toString()
             val description = addDescription.text.toString()
-
             val addIntent = Intent()
             addIntent.putExtra("Titlo",title)
             addIntent.putExtra("Descrição",description)
