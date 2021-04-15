@@ -20,7 +20,6 @@ class AddActivity : AppCompatActivity(){
             val addIntent = Intent()
             addIntent.putExtra("Titlo",title)
             addIntent.putExtra("Descrição",description)
-
             setResult(Activity.RESULT_OK,addIntent)
             finish()
         }
