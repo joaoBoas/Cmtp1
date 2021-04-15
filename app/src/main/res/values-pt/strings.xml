@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="desc">Description</string>
     <string name="app_name">Cmtp1</string>
     <string name="welcome" translatable="false">Bemv-vindo à app</string>
 </resources>
