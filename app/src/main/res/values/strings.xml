@@ -1,6 +1,30 @@
 <resources>
-    <string name="app_name">Cmtp1</string>
-    <string name="desc">Description</string>
-    <string name="welcome" translatable="false">welcome to the app</string>
+    <string name="app_name" translatable="false">ProblemsCityApp</string>
+    <string name="notes">See My Notes</string>
+    <string name="help">Help</string>
+    <string name="add_note">Add Note</string>
+    <string name="login" translatable="false">Login</string>
+    <string name="profile">Profile</string>
+    <string name="save">Save</string>
+    <string name="edit_note">Edit Note</string>
+    <string name="username_title">Username:</string>
+    <string name="password_title" translatable="false">Password:</string>
+    <string name="title_title">Title:</string>
+    <string name="description_title">Description:</string>
+    <string name="logout">Logout</string>
+    <string name="loginSharedPref" translatable="false">loginSP</string>
+    <string name="preference_file_key" translatable="false">SP</string>
+    <string name="nameSharedPref" translatable="false">nameSP</string>
+    <string name="idSharedPref" translatable="false">idSP</string>
 
+    <string name="toast_01">New note inserted!</string>
+    <string name="toast_02">Can´t Edit, field empty!</string>
+    <string name="toast_03">Note updated!</string>
+    <string name="toast_04">Note deleted!</string>
+    <string name="toast_05">Not inserted!</string>
+    <string name="toast_06">Both fields empty!</string>
+    <string name="toast_07">Username field empty!</string>
+    <string name="toast_08">Password field empty!</string>
+    <string name="toast_09">Invalid Login!</string>
+    <string name="welcome">"Welcome "</string>
 </resources>

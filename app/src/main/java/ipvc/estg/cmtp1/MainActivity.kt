@@ -1,9 +1,13 @@
 package ipvc.estg.cmtp1
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
@@ -12,116 +16,54 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ipvc.estg.cmtp1.Adapters.NotasAdapter
-import ipvc.estg.cmtp1.entities.Notas
-import ipvc.estg.cmtp1.viewModel.ViewModel
+import ipvc.estg.cmtp1.Adapters.LineAdapter
+import ipvc.estg.cmtp1.entities.Note
+import ipvc.estg.cmtp1.viewModel.NoteViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), NotasAdapter.RecyclerClick {
-    override fun onItemClick(position: Int) {
-
-        val note = noteAdapter.getNoteAt(position)
-        val id = note.id
-
-        var editIntent = Intent(this, EditActivity::class.java)
-        var title  = note.title
-        var description = note.description
-
-        editIntent.putExtra("title",title)
-        editIntent.putExtra("description",description)
-
-        startActivityForResult(editIntent,
-            edit
-        )
-
-        Log.e("MainActivityclick",title+description+position)    }
-
-    companion object{
-        val add = 1
-        val edit =2
-    }
-
-    lateinit var viewModel: ViewModel
-    lateinit var noteAdapter: NotasAdapter
-    lateinit var getAllNotes: LiveData<List<Notas>>
-    lateinit var allNotes:List<Notas>
-
+class MainActivity : AppCompatActivity(), LineAdapter.RecyclerClick {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    }
 
-        //Swipe recycler view items on RIGHT
-        val helper by lazy {
-            object : ItemTouchHelper.SimpleCallback(
-                0, ItemTouchHelper.RIGHT
-            ) {
-                override fun onMove(
-                    recyclerView: RecyclerView,
-                    viewHolder: RecyclerView.ViewHolder,
-                    target: RecyclerView.ViewHolder
-                ): Boolean {
-                    return true
+    //Function to call the menu
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.profile -> {
+                val intent = Intent (this, ProfileActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.notes -> {
+                val intent = Intent (this, NotesActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.help -> {
+                val intent = Intent (this, HelpActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.logout -> {
+                val sharedPref: SharedPreferences = getSharedPreferences(
+                    getString(R.string.preference_file_key), Context.MODE_PRIVATE)
+                with(sharedPref.edit()){
+                    putBoolean(getString(R.string.loginSharedPref), false)
+                    putString(getString(R.string.nameSharedPref), "")
+                    putInt(getString(R.string.idSharedPref), 0)
+                    commit()
                 }
 
-                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                    var position = viewHolder.adapterPosition
-                    viewModel.delete(allNotes.get(position))
-                    Toast.makeText(applicationContext,"Nota Eliminada", Toast.LENGTH_SHORT).show()
-                }
+                val intent = Intent (this, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
             }
         }
-
-
-        //Attaching ViewModel
-        viewModel = ViewModelProviders.of(this).get(ViewModel::class.java)
-
-
-        //Live Data
-        getAllNotes = viewModel.getAllNotes()
-        getAllNotes.observe(this, Observer {
-
-            //update RecyclerView
-            allNotes = getAllNotes.value!!
-            recyclerView.layoutManager = LinearLayoutManager(this)
-            recyclerView.adapter = NotasAdapter(allNotes, this)
-            noteAdapter = NotasAdapter(allNotes, this)
-            val swipe = ItemTouchHelper(helper)
-            swipe.attachToRecyclerView(recyclerView)
-        })
-
-        //Floating action button
-        fab.setOnClickListener {
-            var addIntent = Intent(this, AddActivity::class.java)
-            startActivityForResult(addIntent,
-                add
-            )
-        }
+        return true
     }
 
 
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if(requestCode== add &&resultCode== Activity.RESULT_OK){
-
-            var title = data?.getStringExtra("title")
-            var description =  data?.getStringExtra("description")
-            var id = data?.getStringExtra("id")
-            val note = Notas(0,title.toString(),description.toString())
-            viewModel.insert(note)
-            Toast.makeText(applicationContext,"Note Saved", Toast.LENGTH_SHORT).show()
-        }
-        if(requestCode== edit &&resultCode== Activity.RESULT_OK){
-
-            var title = data?.getStringExtra("title")
-            var description =  data?.getStringExtra("description")
-            var id = data?.getStringExtra("id")
-
-            Toast.makeText(applicationContext,"Note Updated", Toast.LENGTH_SHORT).show()
-            val note  = Notas(id?.toInt()!!,title.toString(),description.toString())
-            viewModel.update(note)
-        }
-
-    }
 }

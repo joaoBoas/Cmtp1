@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="desc">Description</string>
-    <string name="app_name">Cmtp1</string>
-    <string name="welcome" translatable="false">Bemv-vindo à app</string>
+    <string name="notes">Ver Notas Pessoais</string>
+    <string name="help">Ajuda</string>
+    <string name="add_note">Adicionar Nota</string>
+    <string name="profile">Perfil</string>
+    <string name="save">Guardar</string>
+    <string name="edit_note">Editar Nota</string>
+    <string name="title_title">Título:</string>
+    <string name="description_title">Decrição:</string>
+    <string name="username_title">Utilizador:</string>
+    <string name="logout">Desconectar</string>
+
+    <string name="toast_01">Nova Nota inserida!</string>
+    <string name="toast_02">Sem Edição, campo vazio!</string>
+    <string name="toast_03">Nota editada!</string>
+    <string name="toast_04">Nota apagada!</string>
+    <string name="toast_05">Não foi inserido!</string>
+    <string name="toast_06">Ambos os campos vazios!</string>
+    <string name="toast_07">Campo Utilizador vazio!</string>
+    <string name="toast_08">Campo Password vazio!</string>
+    <string name="toast_09">Login Inválido!</string>
 </resources>
