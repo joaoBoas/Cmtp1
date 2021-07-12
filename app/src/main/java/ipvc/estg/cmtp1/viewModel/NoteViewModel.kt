@@ -27,4 +27,5 @@ class NoteViewModel(application: Application) : AndroidViewModel(application)  {
     fun deleteById(id: Int?) = viewModelScope.launch(Dispatchers.IO) {
         repository.deleteByID(id)
     }
+
 }
