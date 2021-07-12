@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import ipvc.estg.cmtp1.database.NoteDB
 import ipvc.estg.cmtp1.database.NoteRepository
 import ipvc.estg.cmtp1.entities.Note
-import ipvc.estg.cmtp1.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

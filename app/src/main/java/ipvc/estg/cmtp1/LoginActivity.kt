@@ -9,6 +9,9 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import ipvc.estg.cmtp1.api.EndPoints
+import ipvc.estg.cmtp1.api.ServiceBuilder
+import ipvc.estg.cmtp1.api.User
 import kotlinx.android.synthetic.main.login.*
 import retrofit2.Call
 import retrofit2.Callback

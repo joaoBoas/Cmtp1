@@ -21,7 +21,7 @@ import ipvc.estg.cmtp1.entities.Note
 import ipvc.estg.cmtp1.viewModel.NoteViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), LineAdapter.RecyclerClick {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -64,6 +64,5 @@ class MainActivity : AppCompatActivity(), LineAdapter.RecyclerClick {
         }
         return true
     }
-
 
 }
