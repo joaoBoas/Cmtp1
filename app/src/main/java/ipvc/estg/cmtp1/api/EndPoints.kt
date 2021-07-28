@@ -5,9 +5,9 @@ import retrofit2.http.*
 
 interface EndPoints {
 
-    @GET("users/")
-    fun getAllUsers(): Call<List<User>>
 
-    @GET("user/{name}")
-    fun getUserByName(@Path("name") name: String): Call<User>
+    @FormUrlEncoded
+    @POST("users/login")
+    fun login(@Field( "username") username: String?, @Field("password") password: String?): Call<User>
+
 }

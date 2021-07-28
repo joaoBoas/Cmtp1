@@ -54,7 +54,7 @@ class LoginActivity : AppCompatActivity() {
         val passText = findViewById<EditText>(R.id.password)
 
         val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val call = request.getUserByName(nameText.text.toString())
+        val call = request.login(nameText.text.toString(),passText.text.toString())
         val intent = Intent(this, MainActivity::class.java)
 
         //If Both fields empty
@@ -76,7 +76,7 @@ class LoginActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         val u: User = response.body()!!
 
-                        if (nameText.text.toString() == u.name && (passText.text.toString() == u.password)) {
+                        if (nameText.text.toString() == u.username && (passText.text.toString() == u.password)) {
                             startActivity(intent)
                             finish()
 
@@ -88,6 +88,7 @@ class LoginActivity : AppCompatActivity() {
                                 putInt(getString(R.string.idSharedPref), u.id)
                                 Log.d("Values", "$")
                                 commit()
+
                             }
                             Toast.makeText(applicationContext, getString(R.string.welcome) + u.name, Toast.LENGTH_SHORT).show()
 
