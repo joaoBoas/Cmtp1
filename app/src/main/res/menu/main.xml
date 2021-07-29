@@ -6,7 +6,9 @@
         android:title="@string/profile"
         android:id="@+id/profile" />
     -->
-
+    <item
+        android:title="@string/addReport"
+        android:id="@+id/addReport" />
     <item
         android:title="@string/note"
         android:id="@+id/notes" />

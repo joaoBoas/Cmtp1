@@ -13,12 +13,10 @@ interface EndPoints {
     fun getReports(): Call<List<Report>>
     @FormUrlEncoded
     @POST("report/addReport")
-    fun addReport(@Field("title") title: String,
+    fun addReport(@Field("name") title: String,
                   @Field("description") description: String,
                   @Field("lat") lat: Float,
                   @Field("lng") lng: Float,
-                  @Field("date_creation") date_creation: String,
-                  @Field("type") type: String,
                   @Field("user_id") user_id: Int
     ): Call<Report>
 

@@ -17,7 +17,13 @@
     <string name="preference_file_key" translatable="false">SP</string>
     <string name="nameSharedPref" translatable="false">nameSP</string>
     <string name="idSharedPref" translatable="false">idSP</string>
+    <string name="addReport">Add Report</string>
 
+    <string name="latSharedPref" translatable="false">latSP</string>
+    <string name="lngSharedPref" translatable="false">lngSP</string>
+    <string name="title">title</string>
+    <string name="description">description</string>
+    <string name="type">type</string>
     <string name="toast_01">New note inserted!</string>
     <string name="toast_02">Can´t Edit, field empty!</string>
     <string name="toast_03">Note updated!</string>
@@ -27,6 +33,9 @@
     <string name="toast_07">Username field empty!</string>
     <string name="toast_08">Password field empty!</string>
     <string name="toast_09">Invalid Login!</string>
+    <string name="toast_10">All the fields must be filled</string>
+    <string name="toast_11">Report Added</string>
+
     <string name="title_activity_maps">Map</string>
     <string name="welcome">"Welcome "</string>
     <string name="google_maps_key">AIzaSyA1FHaBazz73EvATpjRfIjAa5HIicMkUWk</string>

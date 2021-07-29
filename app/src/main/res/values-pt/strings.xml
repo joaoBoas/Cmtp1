@@ -12,6 +12,10 @@
     <string name="description_title">Decrição:</string>
     <string name="username_title">Utilizador:</string>
     <string name="logout">Desconectar</string>
+    <string name="addReport">Adicionar Problema</string>
+    <string name="title">titulo</string>
+    <string name="description">descrição</string>
+    <string name="type">tipo</string>
     <string name="title_activity_maps">Mapa</string>
     <string name="welcome">"Bem Vindo "</string>
     <string name="toast_01">Nova Nota inserida!</string>
@@ -23,5 +27,7 @@
     <string name="toast_07">Campo Utilizador vazio!</string>
     <string name="toast_08">Campo Password vazio!</string>
     <string name="toast_09">Login Inválido!</string>
+    <string name="toast_10">Todos os campos devem estar preenchidos</string>
+    <string name="toast_11">Problema adicionado</string>
     <string name="google_maps_key">AIzaSyA1FHaBazz73EvATpjRfIjAa5HIicMkUWk</string>
 </resources>
