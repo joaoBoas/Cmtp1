@@ -4,9 +4,9 @@ import java.util.*
 
 data class Report (
     val id: Int,
-    val title: String,
+    val name: String,
     val description: String,
     val lat: Float,
     val lng: Float,
-    val user_id: Int
+    val users_id: Int
 )

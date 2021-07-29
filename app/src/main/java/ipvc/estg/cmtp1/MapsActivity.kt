@@ -51,19 +51,19 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     reports = response.body()!!
 
                     for(report in reports) {
-                        if(report.user_id == idUser) {
+                        if(report.users_id == idUser) {
                             position = LatLng(report.lat.toString().toDouble(), report.lng.toString().toDouble())
-                            mMap.addMarker(MarkerOptions().position(position).title(report.title)
+                            mMap.addMarker(MarkerOptions().position(position).title(report.name)
                                 .snippet(report.description)
                                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)))
                             //mMap.setInfoWindowAdapter()
                         }
                         else {
                             position = LatLng(report.lat.toString().toDouble(), report.lng.toString().toDouble())
-                            mMap.addMarker(MarkerOptions().position(position).title(report.title)
+                            mMap.addMarker(MarkerOptions().position(position).title(report.name)
                                 .snippet(report.description)
                                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)))
-                            //mMap.setInfoWindowAdapter()
+
                         }
                     }
                 }
