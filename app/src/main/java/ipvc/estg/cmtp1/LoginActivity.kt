@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.login.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlinx.android.synthetic.main.activity_main.*
 
 class LoginActivity : AppCompatActivity() {
 
@@ -40,9 +41,9 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //Check if login is already have login and redirect to MainActivity
+        //Check if login is already have login and redirect to MapsActivity
         if(loginSharedPref) {
-            val intent = Intent (this, MainActivity::class.java)
+            val intent = Intent (this, MapsActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -55,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
 
         val request = ServiceBuilder.buildService(EndPoints::class.java)
         val call = request.login(nameText.text.toString(),passText.text.toString())
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, MapsActivity::class.java)
 
         //If Both fields empty
         if (nameText.text.toString().isEmpty() && passText.text.toString().isEmpty()) {
@@ -88,7 +89,6 @@ class LoginActivity : AppCompatActivity() {
                                 putInt(getString(R.string.idSharedPref), u.id)
                                 Log.d("Values", "$")
                                 commit()
-
                             }
                             Toast.makeText(applicationContext, getString(R.string.welcome) + u.name, Toast.LENGTH_SHORT).show()
 
@@ -103,5 +103,4 @@ class LoginActivity : AppCompatActivity() {
             })
         }
     }
-
 }

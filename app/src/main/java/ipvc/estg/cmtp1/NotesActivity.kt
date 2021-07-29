@@ -30,7 +30,7 @@ class NotesActivity: AppCompatActivity(), LineAdapter.SendInfo {
 
         //Change the title of Activity on Bar
         val actionBar = supportActionBar
-        actionBar!!.title = "Notes"
+        actionBar!!.title = getString(R.string.note)
         actionBar.setDisplayHomeAsUpEnabled(true)
 
         //RecyclerView
@@ -71,12 +71,11 @@ class NotesActivity: AppCompatActivity(), LineAdapter.SendInfo {
             val descVar = data?.getStringExtra("editText02")
             val dateVar = LocalDate.now().toString()
 
-            if(titleVar != null && descVar != null) {
+            if (titleVar != null && descVar != null) {
                 val note = Note(title = titleVar, description = descVar, date = dateVar)
                 noteViewModel.insert(note)
             }
-        }
-        else {
+        } else {
             Toast.makeText(applicationContext, R.string.toast_05, Toast.LENGTH_LONG).show()
         }
     }

@@ -9,5 +9,6 @@ interface EndPoints {
     @FormUrlEncoded
     @POST("users/login")
     fun login(@Field( "username") username: String?, @Field("password") password: String?): Call<User>
-
+    @GET("report")
+    fun getReports(): Call<List<Report>>
 }
